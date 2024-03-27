@@ -1,5 +1,7 @@
 package common
 
+import "strconv"
+
 const (
 	BraceLeft    = 123 // {		=> " or }		入栈
 	BraceRight   = 125 // }		=> *end_token*	出栈
@@ -43,4 +45,9 @@ func IsBlank(c int32) bool {
 
 func IsNumBeginning(c int32) bool {
 	return c >= Zero && c <= Nine || c == Sub
+}
+
+func IsNum(s string) bool {
+	_, err := strconv.Atoi(s)
+	return err == nil
 }
